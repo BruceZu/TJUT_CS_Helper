@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>普通高等学校高等职业教育（专科）专业目录（2016年）</title>
+<link href="/mss/msp/css/situjieshao-style.css" type="text/css" rel="stylesheet" />
+<link href="/mss/msp/css/style5.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="x-ua-compatible" content="IE=EmuIE7"/>
+
+
+
+
+
+
+
+
+
+<script language=javascript src="/public/js/page_comm.js"></script>
+<script language=javascript src="/public/js/jquery.js"></script>
+
+<script language=javascript>
+var num=100
+
+function searchRecord(searchinfo){
+  document.pageForm.startcount.value = "0";
+  document.pageForm.action="/mspMajorGzAction.fo?method=list";
+  document.pageForm.submit();
+} 
+
+var   subcat   =   new   Array();     
+function   changeselect1(val)     
+{     
+document.pageForm.majorl.length   =   0;   //初始化下拉列表   清空下拉数据     
+document.pageForm.majorl.options[0]   =   new   Option('全部','-1');   //给第一个值
+
+$.ajax({
+    url:"/mspMajorGzAction.fo?method=getMajorl",
+    type:"post",
+    data:{"majordl":val},
+    success:function(subcat){
+    	var subcat = eval('(' + subcat + ')');
+    	for   (i=0;   i<subcat.length;   i++)   //legth=20     
+    	{   
+    		
+    		//alert(subcat[i]);
+    		if   (true)   //[0]   [1]   第一列   第二列     
+    		{document.pageForm.majorl.options[document.pageForm.majorl.length]   =   new   Option(subcat[i],   subcat[i]);}   //建立option     
+    		//第一次   length=1   因为有==请选择==     
+    		//i=9时   length=   10   值有11个   因为从0数起   subcat[i][0]   ==   locationid屏蔽了再写     
+    	}     
+    },
+    error:function(e){
+        alert("错误！！");
+        window.clearInterval(timer);
+    }
+});
+}
+</script>   
+</head>
+<body>
+<form name="pageForm" method=post>
+<div class="box">
+	<div id="A1" style="width:1000px;margin: 0 auto;"><img src="/mss/msp/images/gz2.png" style="display: block;"></img></div>
+    <div id="A2"></div>
+		<div id="A7">
+		<div id="A4" style="width:961px;">
+			<div class="tatle">
+				检索条件 
+			</div>
+			<table>
+				<tr>
+                	<td class="yi">专业大类：</td>
+                    <td class="er">
+                    <select name="majordl" style="width:206px;" onChange="changeselect1(this.value)">
+                    <option value="-1"  >全部</option>
+                    
+                    <option value="农林牧渔大类"  >农林牧渔大类</option>
+                   	
+                    <option value="资源环境与安全大类"  >资源环境与安全大类</option>
+                   	
+                    <option value="能源动力与材料大类"  >能源动力与材料大类</option>
+                   	
+                    <option value="土木建筑大类"  >土木建筑大类</option>
+                   	
+                    <option value="水利大类"  >水利大类</option>
+                   	
+                    <option value="装备制造大类"  >装备制造大类</option>
+                   	
+                    <option value="生物与化工大类"  >生物与化工大类</option>
+                   	
+                    <option value="轻工纺织大类"  >轻工纺织大类</option>
+                   	
+                    <option value="食品药品与粮食大类"  >食品药品与粮食大类</option>
+                   	
+                    <option value="交通运输大类"  >交通运输大类</option>
+                   	
+                    <option value="电子信息大类"  >电子信息大类</option>
+                   	
+                    <option value="医药卫生大类"  >医药卫生大类</option>
+                   	
+                    <option value="财经商贸大类"  >财经商贸大类</option>
+                   	
+                    <option value="旅游大类"  >旅游大类</option>
+                   	
+                    <option value=" 文化艺术大类"  > 文化艺术大类</option>
+                   	
+                    <option value="新闻传播大类"  >新闻传播大类</option>
+                   	
+                    <option value="教育与体育大类"  >教育与体育大类</option>
+                   	
+                    <option value="公安与司法大类"  >公安与司法大类</option>
+                   	
+                    <option value="公共管理与服务大类"  >公共管理与服务大类</option>
+                   	
+                    </select>
+                    </td>
+                   <!--  <td class="san">
+                    	<a onclick="searchRecord('year')"><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td> -->
+                </tr>
+            	<tr>
+                	<td class="yi">专业类：</td>
+                    <td class="er">
+                    <select name="majorl" style="width:206px;">
+                    <option value="-1"  >全部</option>
+                    
+                    <option value="农业类"  >农业类</option>
+                   
+                    <option value="林业类"  >林业类</option>
+                   
+                    <option value="畜牧业类"  >畜牧业类</option>
+                   
+                    <option value="渔业类"  >渔业类</option>
+                   
+                    <option value="资源勘查类"  >资源勘查类</option>
+                   
+                    <option value="地质类"  >地质类</option>
+                   
+                    <option value="测绘地理信息类"  >测绘地理信息类</option>
+                   
+                    <option value="石油与天然气类"  >石油与天然气类</option>
+                   
+                    <option value="煤炭类"  >煤炭类</option>
+                   
+                    <option value="金属与非金属矿类"  >金属与非金属矿类</option>
+                   
+                    <option value="气象类"  >气象类</option>
+                   
+                    <option value="环境保护类"  >环境保护类</option>
+                   
+                    <option value="安全类"  >安全类</option>
+                   
+                    <option value="电力技术类"  >电力技术类</option>
+                   
+                    <option value="热能与发电工程类"  >热能与发电工程类</option>
+                   
+                    <option value="新能源发电工程类"  >新能源发电工程类</option>
+                   
+                    <option value="黑色金属材料类"  >黑色金属材料类</option>
+                   
+                    <option value="有色金属材料类"  >有色金属材料类</option>
+                   
+                    <option value="非金属材料类"  >非金属材料类</option>
+                   
+                    <option value="建筑材料类"  >建筑材料类</option>
+                   
+                    <option value="建筑设计类"  >建筑设计类</option>
+                   
+                    <option value="城乡规划与管理类"  >城乡规划与管理类</option>
+                   
+                    <option value="土建施工类"  >土建施工类</option>
+                   
+                    <option value="建筑设备类"  >建筑设备类</option>
+                   
+                    <option value="建设工程管理类"  >建设工程管理类</option>
+                   
+                    <option value="市政工程类"  >市政工程类</option>
+                   
+                    <option value="房地产类"  >房地产类</option>
+                   
+                    <option value="水文水资源类"  >水文水资源类</option>
+                   
+                    <option value="水利工程与管理类"  >水利工程与管理类</option>
+                   
+                    <option value="水利水电设备类"  >水利水电设备类</option>
+                   
+                    <option value="水土保持与水环境类"  >水土保持与水环境类</option>
+                   
+                    <option value="机械设计制造类"  >机械设计制造类</option>
+                   
+                    <option value="机电设备类"  >机电设备类</option>
+                   
+                    <option value="自动化类"  >自动化类</option>
+                   
+                    <option value="铁道装备类"  >铁道装备类</option>
+                   
+                    <option value="船舶与海洋工程装备类"  >船舶与海洋工程装备类</option>
+                   
+                    <option value=" 航空装备类"  > 航空装备类</option>
+                   
+                    <option value="汽车制造类"  >汽车制造类</option>
+                   
+                    <option value="生物技术类"  >生物技术类</option>
+                   
+                    <option value="化工技术类"  >化工技术类</option>
+                   
+                    <option value="轻化工类"  >轻化工类</option>
+                   
+                    <option value="包装类"  >包装类</option>
+                   
+                    <option value="印刷类"  >印刷类</option>
+                   
+                    <option value="纺织服装类"  >纺织服装类</option>
+                   
+                    <option value="食品工业类"  >食品工业类</option>
+                   
+                    <option value="药品制造类"  >药品制造类</option>
+                   
+                    <option value="食品药品管理类"  >食品药品管理类</option>
+                   
+                    <option value="粮食工业类"  >粮食工业类</option>
+                   
+                    <option value="粮食储检类"  >粮食储检类</option>
+                   
+                    <option value="铁道运输类"  >铁道运输类</option>
+                   
+                    <option value="道路运输类"  >道路运输类</option>
+                   
+                    <option value="水上运输类"  >水上运输类</option>
+                   
+                    <option value="航空运输类"  >航空运输类</option>
+                   
+                    <option value="管道运输类"  >管道运输类</option>
+                   
+                    <option value="城市轨道交通类"  >城市轨道交通类</option>
+                   
+                    <option value="邮政类"  >邮政类</option>
+                   
+                    <option value="电子信息类"  >电子信息类</option>
+                   
+                    <option value="计算机类"  >计算机类</option>
+                   
+                    <option value="通信类"  >通信类</option>
+                   
+                    <option value="临床医学类"  >临床医学类</option>
+                   
+                    <option value="护理类"  >护理类</option>
+                   
+                    <option value="药学类"  >药学类</option>
+                   
+                    <option value="医学技术类"  >医学技术类</option>
+                   
+                    <option value="康复治疗类"  >康复治疗类</option>
+                   
+                    <option value="公共卫生与卫生管理类"  >公共卫生与卫生管理类</option>
+                   
+                    <option value="人口与计划生育类"  >人口与计划生育类</option>
+                   
+                    <option value="健康管理与促进类"  >健康管理与促进类</option>
+                   
+                    <option value="财政税务类"  >财政税务类</option>
+                   
+                    <option value="金融类"  >金融类</option>
+                   
+                    <option value="财务会计类"  >财务会计类</option>
+                   
+                    <option value="统计类"  >统计类</option>
+                   
+                    <option value="经济贸易类"  >经济贸易类</option>
+                   
+                    <option value="工商管理类"  >工商管理类</option>
+                   
+                    <option value="市场营销类"  >市场营销类</option>
+                   
+                    <option value="电子商务类"  >电子商务类</option>
+                   
+                    <option value="物流类"  >物流类</option>
+                   
+                    <option value="旅游类"  >旅游类</option>
+                   
+                    <option value="餐饮类"  >餐饮类</option>
+                   
+                    <option value="会展类"  >会展类</option>
+                   
+                    <option value="艺术设计类"  >艺术设计类</option>
+                   
+                    <option value="表演艺术类"  >表演艺术类</option>
+                   
+                    <option value="民族文化类"  >民族文化类</option>
+                   
+                    <option value="文化服务类"  >文化服务类</option>
+                   
+                    <option value="新闻出版类"  >新闻出版类</option>
+                   
+                    <option value="广播影视类"  >广播影视类</option>
+                   
+                    <option value="教育类"  >教育类</option>
+                   
+                    <option value="语言类"  >语言类</option>
+                   
+                    <option value="文秘类"  >文秘类</option>
+                   
+                    <option value="体育类"  >体育类</option>
+                   
+                    <option value="公安管理类"  >公安管理类</option>
+                   
+                    <option value="公安指挥类"  >公安指挥类</option>
+                   
+                    <option value="公安技术类"  >公安技术类</option>
+                   
+                    <option value="侦查类"  >侦查类</option>
+                   
+                    <option value="法律实务类"  >法律实务类</option>
+                   
+                    <option value="法律执行类"  >法律执行类</option>
+                   
+                    <option value="司法技术类"  >司法技术类</option>
+                   
+                    <option value="公共事业类"  >公共事业类</option>
+                   
+                    <option value="公共管理类"  >公共管理类</option>
+                   
+                    <option value="公共服务类"  >公共服务类</option>
+                   
+                    </select>
+                    </td>
+                    <!-- <td class="san">
+                    	<a onclick="searchRecord('province')"><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td> -->
+                </tr>
+				<tr>
+                	<td class="yi">专业代码：</td>
+                    <td class="er"><input type="text" name="majorno" id="majorno" value='' class="mingyi" /></td>
+                    <!-- <td class="san">
+                    	<a onclick="searchRecord('majorno')"><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td> -->
+                </tr>
+				<tr>
+                	<td class="yi">专业名称：</td>
+                    <td class="er"><input type="text" name="majorname" id="majorname" value='' class="mingyi" />
+                    <a onclick="searchRecord('majorname')" style="float:right;margin-right:110px""><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td>
+                    <td class="san"></td>
+                </tr>
+			</table>
+			<input type="hidden" name="startcount"  id="startcount" value="500"/>
+		</div>
+		<div class="clear"></div>
+		<div id="A5">
+			<div class="tatle">
+				<h3>数据检索列表</h3>
+			</div>
+			
+			<table>
+            	<tr >
+                	<td class="B1" style="font-size:14px; font-weight:bold">专业大类</td>
+                    <td class="B2" style="font-size:14px; font-weight:bold">专业类</td>
+                    <td class="B3" style="font-size:14px; font-weight:bold">专业代码</td>
+					<td class="B4" style="font-size:14px; font-weight:bold">专业名称</td>
+                    <td class="B6" style="font-size:14px; font-weight:bold">备注</td>
+                </tr>
+				
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">医药卫生大类</td>
+					<td class="B4">健康管理与促进类</td>
+                	<td class="B1">620808</td>
+                    <td class="B2">康复工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">医药卫生大类</td>
+					<td class="B4">健康管理与促进类</td>
+                	<td class="B1">620809</td>
+                    <td class="B2">康复辅助器具技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">医药卫生大类</td>
+					<td class="B4">健康管理与促进类</td>
+                	<td class="B1">620810</td>
+                    <td class="B2">假肢与矫形器技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">医药卫生大类</td>
+					<td class="B4">健康管理与促进类</td>
+                	<td class="B1">620811</td>
+                    <td class="B2">老年保健与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">医药卫生大类</td>
+					<td class="B4">健康管理与促进类</td>
+                	<td class="B1">620812</td>
+                    <td class="B2">医疗器械经营与管理</td>
+                    <td class="B6">2016年增补</td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财政税务类</td>
+                	<td class="B1">630101</td>
+                    <td class="B2">财政</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财政税务类</td>
+                	<td class="B1">630102</td>
+                    <td class="B2">税务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财政税务类</td>
+                	<td class="B1">630103</td>
+                    <td class="B2">资产评估与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财政税务类</td>
+                	<td class="B1">630104</td>
+                    <td class="B2">政府采购管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630201</td>
+                    <td class="B2">金融管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630202</td>
+                    <td class="B2">国际金融</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630203</td>
+                    <td class="B2">证券与期货</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630204</td>
+                    <td class="B2">信托与租赁</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630205</td>
+                    <td class="B2">保险</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630206</td>
+                    <td class="B2">投资与理财</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630207</td>
+                    <td class="B2">信用管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630208</td>
+                    <td class="B2">农村金融</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">金融类</td>
+                	<td class="B1">630209</td>
+                    <td class="B2">互联网金融</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财务会计类</td>
+                	<td class="B1">630301</td>
+                    <td class="B2">财务管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财务会计类</td>
+                	<td class="B1">630302</td>
+                    <td class="B2">会计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财务会计类</td>
+                	<td class="B1">630303</td>
+                    <td class="B2">审计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">财务会计类</td>
+                	<td class="B1">630304</td>
+                    <td class="B2">会计信息管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">统计类</td>
+                	<td class="B1">630401</td>
+                    <td class="B2">信息统计与分析</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">统计类</td>
+                	<td class="B1">630402</td>
+                    <td class="B2">统计与会计核算</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630501</td>
+                    <td class="B2">国际贸易实务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630502</td>
+                    <td class="B2">国际经济与贸易</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630503</td>
+                    <td class="B2">国际商务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630504</td>
+                    <td class="B2">服务外包</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630505</td>
+                    <td class="B2">经济信息管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630506</td>
+                    <td class="B2">报关与国际货运</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630507</td>
+                    <td class="B2">商务经纪与代理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">经济贸易类</td>
+                	<td class="B1">630508</td>
+                    <td class="B2">国际文化贸易</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630601</td>
+                    <td class="B2">工商企业管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630602</td>
+                    <td class="B2">商务管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630603</td>
+                    <td class="B2">商检技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630604</td>
+                    <td class="B2">连锁经营管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630605</td>
+                    <td class="B2">市场管理与服务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630606</td>
+                    <td class="B2">品牌代理经营</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">工商管理类</td>
+                	<td class="B1">630607</td>
+                    <td class="B2">中小企业创业与经营</td>
+                    <td class="B6">2016年增补</td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">市场营销类</td>
+                	<td class="B1">630701</td>
+                    <td class="B2">市场营销</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">市场营销类</td>
+                	<td class="B1">630702</td>
+                    <td class="B2">汽车营销与服务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">市场营销类</td>
+                	<td class="B1">630703</td>
+                    <td class="B2">广告策划与营销</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">市场营销类</td>
+                	<td class="B1">630704</td>
+                    <td class="B2">茶艺与茶叶营销</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">电子商务类</td>
+                	<td class="B1">630801</td>
+                    <td class="B2">电子商务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">电子商务类</td>
+                	<td class="B1">630802</td>
+                    <td class="B2">移动商务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">电子商务类</td>
+                	<td class="B1">630803</td>
+                    <td class="B2">网络营销</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">电子商务类</td>
+                	<td class="B1">630804</td>
+                    <td class="B2">商务数据分析与应用</td>
+                    <td class="B6">2016年增补</td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630901</td>
+                    <td class="B2">物流工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630902</td>
+                    <td class="B2">物流信息技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630903</td>
+                    <td class="B2">物流管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630904</td>
+                    <td class="B2">物流金融管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630905</td>
+                    <td class="B2">工程物流管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630906</td>
+                    <td class="B2">冷链物流技术与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">财经商贸大类</td>
+					<td class="B4">物流类</td>
+                	<td class="B1">630907</td>
+                    <td class="B2">采购与供应管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">旅游类</td>
+                	<td class="B1">640101</td>
+                    <td class="B2">旅游管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">旅游类</td>
+                	<td class="B1">640102</td>
+                    <td class="B2">导游</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">旅游类</td>
+                	<td class="B1">640103</td>
+                    <td class="B2">旅行社经营管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">旅游类</td>
+                	<td class="B1">640104</td>
+                    <td class="B2">景区开发与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">旅游类</td>
+                	<td class="B1">640105</td>
+                    <td class="B2">酒店管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">旅游类</td>
+                	<td class="B1">640106</td>
+                    <td class="B2">休闲服务与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">餐饮类</td>
+                	<td class="B1">640201</td>
+                    <td class="B2">餐饮管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">餐饮类</td>
+                	<td class="B1">640202</td>
+                    <td class="B2">烹调工艺与营养</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">餐饮类</td>
+                	<td class="B1">640203</td>
+                    <td class="B2">营养配餐</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">餐饮类</td>
+                	<td class="B1">640204</td>
+                    <td class="B2">中西面点工艺</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">餐饮类</td>
+                	<td class="B1">640205</td>
+                    <td class="B2">西餐工艺</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">旅游大类</td>
+					<td class="B4">会展类</td>
+                	<td class="B1">640301</td>
+                    <td class="B2">会展策划与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650101</td>
+                    <td class="B2">艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650102</td>
+                    <td class="B2">视觉传播设计与制作</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650103</td>
+                    <td class="B2">广告设计与制作</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650104</td>
+                    <td class="B2">数字媒体艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650105</td>
+                    <td class="B2">产品艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650106</td>
+                    <td class="B2">家具艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650107</td>
+                    <td class="B2">皮具艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650108</td>
+                    <td class="B2">服装与服饰设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650109</td>
+                    <td class="B2">室内艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650110</td>
+                    <td class="B2">展示艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650111</td>
+                    <td class="B2">环境艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650112</td>
+                    <td class="B2">公共艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650113</td>
+                    <td class="B2">雕刻艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650114</td>
+                    <td class="B2">包装艺术设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650115</td>
+                    <td class="B2">陶瓷设计与工艺</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650116</td>
+                    <td class="B2">刺绣设计与工艺</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650117</td>
+                    <td class="B2">玉器设计与工艺</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650118</td>
+                    <td class="B2">首饰设计与工艺</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650119</td>
+                    <td class="B2">工艺美术品设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650120</td>
+                    <td class="B2">动漫设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650121</td>
+                    <td class="B2">游戏设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650122</td>
+                    <td class="B2">人物形象设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650123</td>
+                    <td class="B2">美容美体艺术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650124</td>
+                    <td class="B2">摄影与摄像艺术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">艺术设计类</td>
+                	<td class="B1">650125</td>
+                    <td class="B2">美术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650201</td>
+                    <td class="B2">表演艺术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650202</td>
+                    <td class="B2">戏剧影视表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650203</td>
+                    <td class="B2">歌舞表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650204</td>
+                    <td class="B2">戏曲表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650205</td>
+                    <td class="B2">曲艺表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650206</td>
+                    <td class="B2">音乐剧表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650207</td>
+                    <td class="B2">舞蹈表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650208</td>
+                    <td class="B2">国际标准舞</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3"> 文化艺术大类</td>
+					<td class="B4">表演艺术类</td>
+                	<td class="B1">650209</td>
+                    <td class="B2">服装表演</td>
+                    <td class="B6"></td>
+                </tr>
+                
+			</table>
+			<div id="page"><span>共<font color='red'>761</font>条记录,上为第<font color='red'>501</font>到<font color='red'>600</font>条    </span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=0')">首页</A></span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=400')">上一页</A></span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=600')">下一页</A></span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=700')">末页</A></span><span>&nbsp;&nbsp;&nbsp;&nbsp;转到</span><span><input type='text' name='gopage' id="gopage" class='two' value='' style='text-align:left;'></span><span>页</span><span><a href='#' onclick="javascript:gotoPageTxt('mspMajorGzAction.fo?method=list&startcount=')"  class='three'>GO</a><input type='hidden' name='totalPages' id ='totalPages' value='8'/><input type='hidden' name='page_size' id ='page_size' value='100'/></span><div class='high01'></div></div>
+		</div>
+		<div cal class="clear"></div>
+		</div>
+	</div>
+	<div class="box_hr6"></div>
+	<div id="A6">&nbsp;</div>
+	<div class="footer">
+		<div id="footer">
+			<p>技术支持： 中国职业技术教育学会中国职业技术教育网编辑运营中心</p>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</form>
+</body>
+</html>

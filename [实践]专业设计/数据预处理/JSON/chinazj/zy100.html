@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>普通高等学校高等职业教育（专科）专业目录（2016年）</title>
+<link href="/mss/msp/css/situjieshao-style.css" type="text/css" rel="stylesheet" />
+<link href="/mss/msp/css/style5.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="x-ua-compatible" content="IE=EmuIE7"/>
+
+
+
+
+
+
+
+
+
+<script language=javascript src="/public/js/page_comm.js"></script>
+<script language=javascript src="/public/js/jquery.js"></script>
+
+<script language=javascript>
+var num=100
+
+function searchRecord(searchinfo){
+  document.pageForm.startcount.value = "0";
+  document.pageForm.action="/mspMajorGzAction.fo?method=list";
+  document.pageForm.submit();
+} 
+
+var   subcat   =   new   Array();     
+function   changeselect1(val)     
+{     
+document.pageForm.majorl.length   =   0;   //初始化下拉列表   清空下拉数据     
+document.pageForm.majorl.options[0]   =   new   Option('全部','-1');   //给第一个值
+
+$.ajax({
+    url:"/mspMajorGzAction.fo?method=getMajorl",
+    type:"post",
+    data:{"majordl":val},
+    success:function(subcat){
+    	var subcat = eval('(' + subcat + ')');
+    	for   (i=0;   i<subcat.length;   i++)   //legth=20     
+    	{   
+    		
+    		//alert(subcat[i]);
+    		if   (true)   //[0]   [1]   第一列   第二列     
+    		{document.pageForm.majorl.options[document.pageForm.majorl.length]   =   new   Option(subcat[i],   subcat[i]);}   //建立option     
+    		//第一次   length=1   因为有==请选择==     
+    		//i=9时   length=   10   值有11个   因为从0数起   subcat[i][0]   ==   locationid屏蔽了再写     
+    	}     
+    },
+    error:function(e){
+        alert("错误！！");
+        window.clearInterval(timer);
+    }
+});
+}
+</script>   
+</head>
+<body>
+<form name="pageForm" method=post>
+<div class="box">
+	<div id="A1" style="width:1000px;margin: 0 auto;"><img src="/mss/msp/images/gz2.png" style="display: block;"></img></div>
+    <div id="A2"></div>
+		<div id="A7">
+		<div id="A4" style="width:961px;">
+			<div class="tatle">
+				检索条件 
+			</div>
+			<table>
+				<tr>
+                	<td class="yi">专业大类：</td>
+                    <td class="er">
+                    <select name="majordl" style="width:206px;" onChange="changeselect1(this.value)">
+                    <option value="-1"  >全部</option>
+                    
+                    <option value="农林牧渔大类"  >农林牧渔大类</option>
+                   	
+                    <option value="资源环境与安全大类"  >资源环境与安全大类</option>
+                   	
+                    <option value="能源动力与材料大类"  >能源动力与材料大类</option>
+                   	
+                    <option value="土木建筑大类"  >土木建筑大类</option>
+                   	
+                    <option value="水利大类"  >水利大类</option>
+                   	
+                    <option value="装备制造大类"  >装备制造大类</option>
+                   	
+                    <option value="生物与化工大类"  >生物与化工大类</option>
+                   	
+                    <option value="轻工纺织大类"  >轻工纺织大类</option>
+                   	
+                    <option value="食品药品与粮食大类"  >食品药品与粮食大类</option>
+                   	
+                    <option value="交通运输大类"  >交通运输大类</option>
+                   	
+                    <option value="电子信息大类"  >电子信息大类</option>
+                   	
+                    <option value="医药卫生大类"  >医药卫生大类</option>
+                   	
+                    <option value="财经商贸大类"  >财经商贸大类</option>
+                   	
+                    <option value="旅游大类"  >旅游大类</option>
+                   	
+                    <option value=" 文化艺术大类"  > 文化艺术大类</option>
+                   	
+                    <option value="新闻传播大类"  >新闻传播大类</option>
+                   	
+                    <option value="教育与体育大类"  >教育与体育大类</option>
+                   	
+                    <option value="公安与司法大类"  >公安与司法大类</option>
+                   	
+                    <option value="公共管理与服务大类"  >公共管理与服务大类</option>
+                   	
+                    </select>
+                    </td>
+                   <!--  <td class="san">
+                    	<a onclick="searchRecord('year')"><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td> -->
+                </tr>
+            	<tr>
+                	<td class="yi">专业类：</td>
+                    <td class="er">
+                    <select name="majorl" style="width:206px;">
+                    <option value="-1"  >全部</option>
+                    
+                    <option value="农业类"  >农业类</option>
+                   
+                    <option value="林业类"  >林业类</option>
+                   
+                    <option value="畜牧业类"  >畜牧业类</option>
+                   
+                    <option value="渔业类"  >渔业类</option>
+                   
+                    <option value="资源勘查类"  >资源勘查类</option>
+                   
+                    <option value="地质类"  >地质类</option>
+                   
+                    <option value="测绘地理信息类"  >测绘地理信息类</option>
+                   
+                    <option value="石油与天然气类"  >石油与天然气类</option>
+                   
+                    <option value="煤炭类"  >煤炭类</option>
+                   
+                    <option value="金属与非金属矿类"  >金属与非金属矿类</option>
+                   
+                    <option value="气象类"  >气象类</option>
+                   
+                    <option value="环境保护类"  >环境保护类</option>
+                   
+                    <option value="安全类"  >安全类</option>
+                   
+                    <option value="电力技术类"  >电力技术类</option>
+                   
+                    <option value="热能与发电工程类"  >热能与发电工程类</option>
+                   
+                    <option value="新能源发电工程类"  >新能源发电工程类</option>
+                   
+                    <option value="黑色金属材料类"  >黑色金属材料类</option>
+                   
+                    <option value="有色金属材料类"  >有色金属材料类</option>
+                   
+                    <option value="非金属材料类"  >非金属材料类</option>
+                   
+                    <option value="建筑材料类"  >建筑材料类</option>
+                   
+                    <option value="建筑设计类"  >建筑设计类</option>
+                   
+                    <option value="城乡规划与管理类"  >城乡规划与管理类</option>
+                   
+                    <option value="土建施工类"  >土建施工类</option>
+                   
+                    <option value="建筑设备类"  >建筑设备类</option>
+                   
+                    <option value="建设工程管理类"  >建设工程管理类</option>
+                   
+                    <option value="市政工程类"  >市政工程类</option>
+                   
+                    <option value="房地产类"  >房地产类</option>
+                   
+                    <option value="水文水资源类"  >水文水资源类</option>
+                   
+                    <option value="水利工程与管理类"  >水利工程与管理类</option>
+                   
+                    <option value="水利水电设备类"  >水利水电设备类</option>
+                   
+                    <option value="水土保持与水环境类"  >水土保持与水环境类</option>
+                   
+                    <option value="机械设计制造类"  >机械设计制造类</option>
+                   
+                    <option value="机电设备类"  >机电设备类</option>
+                   
+                    <option value="自动化类"  >自动化类</option>
+                   
+                    <option value="铁道装备类"  >铁道装备类</option>
+                   
+                    <option value="船舶与海洋工程装备类"  >船舶与海洋工程装备类</option>
+                   
+                    <option value=" 航空装备类"  > 航空装备类</option>
+                   
+                    <option value="汽车制造类"  >汽车制造类</option>
+                   
+                    <option value="生物技术类"  >生物技术类</option>
+                   
+                    <option value="化工技术类"  >化工技术类</option>
+                   
+                    <option value="轻化工类"  >轻化工类</option>
+                   
+                    <option value="包装类"  >包装类</option>
+                   
+                    <option value="印刷类"  >印刷类</option>
+                   
+                    <option value="纺织服装类"  >纺织服装类</option>
+                   
+                    <option value="食品工业类"  >食品工业类</option>
+                   
+                    <option value="药品制造类"  >药品制造类</option>
+                   
+                    <option value="食品药品管理类"  >食品药品管理类</option>
+                   
+                    <option value="粮食工业类"  >粮食工业类</option>
+                   
+                    <option value="粮食储检类"  >粮食储检类</option>
+                   
+                    <option value="铁道运输类"  >铁道运输类</option>
+                   
+                    <option value="道路运输类"  >道路运输类</option>
+                   
+                    <option value="水上运输类"  >水上运输类</option>
+                   
+                    <option value="航空运输类"  >航空运输类</option>
+                   
+                    <option value="管道运输类"  >管道运输类</option>
+                   
+                    <option value="城市轨道交通类"  >城市轨道交通类</option>
+                   
+                    <option value="邮政类"  >邮政类</option>
+                   
+                    <option value="电子信息类"  >电子信息类</option>
+                   
+                    <option value="计算机类"  >计算机类</option>
+                   
+                    <option value="通信类"  >通信类</option>
+                   
+                    <option value="临床医学类"  >临床医学类</option>
+                   
+                    <option value="护理类"  >护理类</option>
+                   
+                    <option value="药学类"  >药学类</option>
+                   
+                    <option value="医学技术类"  >医学技术类</option>
+                   
+                    <option value="康复治疗类"  >康复治疗类</option>
+                   
+                    <option value="公共卫生与卫生管理类"  >公共卫生与卫生管理类</option>
+                   
+                    <option value="人口与计划生育类"  >人口与计划生育类</option>
+                   
+                    <option value="健康管理与促进类"  >健康管理与促进类</option>
+                   
+                    <option value="财政税务类"  >财政税务类</option>
+                   
+                    <option value="金融类"  >金融类</option>
+                   
+                    <option value="财务会计类"  >财务会计类</option>
+                   
+                    <option value="统计类"  >统计类</option>
+                   
+                    <option value="经济贸易类"  >经济贸易类</option>
+                   
+                    <option value="工商管理类"  >工商管理类</option>
+                   
+                    <option value="市场营销类"  >市场营销类</option>
+                   
+                    <option value="电子商务类"  >电子商务类</option>
+                   
+                    <option value="物流类"  >物流类</option>
+                   
+                    <option value="旅游类"  >旅游类</option>
+                   
+                    <option value="餐饮类"  >餐饮类</option>
+                   
+                    <option value="会展类"  >会展类</option>
+                   
+                    <option value="艺术设计类"  >艺术设计类</option>
+                   
+                    <option value="表演艺术类"  >表演艺术类</option>
+                   
+                    <option value="民族文化类"  >民族文化类</option>
+                   
+                    <option value="文化服务类"  >文化服务类</option>
+                   
+                    <option value="新闻出版类"  >新闻出版类</option>
+                   
+                    <option value="广播影视类"  >广播影视类</option>
+                   
+                    <option value="教育类"  >教育类</option>
+                   
+                    <option value="语言类"  >语言类</option>
+                   
+                    <option value="文秘类"  >文秘类</option>
+                   
+                    <option value="体育类"  >体育类</option>
+                   
+                    <option value="公安管理类"  >公安管理类</option>
+                   
+                    <option value="公安指挥类"  >公安指挥类</option>
+                   
+                    <option value="公安技术类"  >公安技术类</option>
+                   
+                    <option value="侦查类"  >侦查类</option>
+                   
+                    <option value="法律实务类"  >法律实务类</option>
+                   
+                    <option value="法律执行类"  >法律执行类</option>
+                   
+                    <option value="司法技术类"  >司法技术类</option>
+                   
+                    <option value="公共事业类"  >公共事业类</option>
+                   
+                    <option value="公共管理类"  >公共管理类</option>
+                   
+                    <option value="公共服务类"  >公共服务类</option>
+                   
+                    </select>
+                    </td>
+                    <!-- <td class="san">
+                    	<a onclick="searchRecord('province')"><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td> -->
+                </tr>
+				<tr>
+                	<td class="yi">专业代码：</td>
+                    <td class="er"><input type="text" name="majorno" id="majorno" value='' class="mingyi" /></td>
+                    <!-- <td class="san">
+                    	<a onclick="searchRecord('majorno')"><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td> -->
+                </tr>
+				<tr>
+                	<td class="yi">专业名称：</td>
+                    <td class="er"><input type="text" name="majorname" id="majorname" value='' class="mingyi" />
+                    <a onclick="searchRecord('majorname')" style="float:right;margin-right:110px""><img src="/mss/msp/images/sousuo.jpg"></a>
+                    </td>
+                    <td class="san"></td>
+                </tr>
+			</table>
+			<input type="hidden" name="startcount"  id="startcount" value="100"/>
+		</div>
+		<div class="clear"></div>
+		<div id="A5">
+			<div class="tatle">
+				<h3>数据检索列表</h3>
+			</div>
+			
+			<table>
+            	<tr >
+                	<td class="B1" style="font-size:14px; font-weight:bold">专业大类</td>
+                    <td class="B2" style="font-size:14px; font-weight:bold">专业类</td>
+                    <td class="B3" style="font-size:14px; font-weight:bold">专业代码</td>
+					<td class="B4" style="font-size:14px; font-weight:bold">专业名称</td>
+                    <td class="B6" style="font-size:14px; font-weight:bold">备注</td>
+                </tr>
+				
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">气象类</td>
+                	<td class="B1">520704</td>
+                    <td class="B2">防雷技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520801</td>
+                    <td class="B2">环境监测与控制技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520802</td>
+                    <td class="B2">农村环境保护</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520803</td>
+                    <td class="B2">室内环境检测与控制技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520804</td>
+                    <td class="B2">环境工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520805</td>
+                    <td class="B2">环境信息技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520806</td>
+                    <td class="B2">核与辐射检测防护技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520807</td>
+                    <td class="B2">环境规划与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520808</td>
+                    <td class="B2">环境评价与咨询服务</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520809</td>
+                    <td class="B2">污染修复与生态工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520810</td>
+                    <td class="B2">清洁生产与减排技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">环境保护类</td>
+                	<td class="B1">520811</td>
+                    <td class="B2">资源综合利用与管理技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520901</td>
+                    <td class="B2">安全健康与环保</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520902</td>
+                    <td class="B2">化工安全技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520903</td>
+                    <td class="B2">救援技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520904</td>
+                    <td class="B2">安全技术与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520905</td>
+                    <td class="B2">工程安全评价与监理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520906</td>
+                    <td class="B2">安全生产监测监控</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">资源环境与安全大类</td>
+					<td class="B4">安全类</td>
+                	<td class="B1">520907</td>
+                    <td class="B2">职业卫生技术与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530101</td>
+                    <td class="B2">发电厂及电力系统</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530102</td>
+                    <td class="B2">供用电技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530103</td>
+                    <td class="B2">电力系统自动化技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530104</td>
+                    <td class="B2">高压输配电线路施工运行与维护</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530105</td>
+                    <td class="B2">电力系统继电保护与自动化技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530106</td>
+                    <td class="B2">水电站机电设备与自动化</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530107</td>
+                    <td class="B2">电网监控技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530108</td>
+                    <td class="B2">电力客户服务与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530109</td>
+                    <td class="B2">水电站与电力网</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530110</td>
+                    <td class="B2">电源变换技术与应用</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530111</td>
+                    <td class="B2">农业电气化技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530112</td>
+                    <td class="B2">分布式发电与微电网技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">电力技术类</td>
+                	<td class="B1">530113</td>
+                    <td class="B2">机场电工技术</td>
+                    <td class="B6">2016年增补</td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">热能与发电工程类</td>
+                	<td class="B1">530201</td>
+                    <td class="B2">电厂热能动力装置</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">热能与发电工程类</td>
+                	<td class="B1">530202</td>
+                    <td class="B2">城市热能应用技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">热能与发电工程类</td>
+                	<td class="B1">530203</td>
+                    <td class="B2">核电站动力设备运行与维护</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">热能与发电工程类</td>
+                	<td class="B1">530204</td>
+                    <td class="B2">火电厂集控运行</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">热能与发电工程类</td>
+                	<td class="B1">530205</td>
+                    <td class="B2">电厂化学与环保技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">热能与发电工程类</td>
+                	<td class="B1">530206</td>
+                    <td class="B2">电厂热工自动化技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530301</td>
+                    <td class="B2">风力发电工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530302</td>
+                    <td class="B2">风电系统运行与维护</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530303</td>
+                    <td class="B2">生物质能应用技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530304</td>
+                    <td class="B2">光伏发电技术与应用</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530305</td>
+                    <td class="B2">工业节能技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530306</td>
+                    <td class="B2">节电技术与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530307</td>
+                    <td class="B2">太阳能光热技术与应用</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">新能源发电工程类</td>
+                	<td class="B1">530308</td>
+                    <td class="B2">农村能源与环境技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">黑色金属材料类</td>
+                	<td class="B1">530401</td>
+                    <td class="B2">黑色冶金技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">黑色金属材料类</td>
+                	<td class="B1">530402</td>
+                    <td class="B2">轧钢工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">黑色金属材料类</td>
+                	<td class="B1">530403</td>
+                    <td class="B2">钢铁冶金设备应用技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">黑色金属材料类</td>
+                	<td class="B1">530404</td>
+                    <td class="B2">金属材料质量检测</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">黑色金属材料类</td>
+                	<td class="B1">530405</td>
+                    <td class="B2">铁矿资源综合利用</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">有色金属材料类</td>
+                	<td class="B1">530501</td>
+                    <td class="B2">有色冶金技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">有色金属材料类</td>
+                	<td class="B1">530502</td>
+                    <td class="B2">有色冶金设备应用技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">有色金属材料类</td>
+                	<td class="B1">530503</td>
+                    <td class="B2">金属压力加工</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">有色金属材料类</td>
+                	<td class="B1">530504</td>
+                    <td class="B2">金属精密成型技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530601</td>
+                    <td class="B2">材料工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530602</td>
+                    <td class="B2">高分子材料工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530603</td>
+                    <td class="B2">复合材料工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530604</td>
+                    <td class="B2">非金属矿物材料技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530605</td>
+                    <td class="B2">光伏材料制备技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530606</td>
+                    <td class="B2">炭素加工技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530607</td>
+                    <td class="B2">硅材料制备技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">非金属材料类</td>
+                	<td class="B1">530608</td>
+                    <td class="B2">橡胶工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">建筑材料类</td>
+                	<td class="B1">530701</td>
+                    <td class="B2">建筑材料工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">建筑材料类</td>
+                	<td class="B1">530702</td>
+                    <td class="B2">建筑材料检测技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">建筑材料类</td>
+                	<td class="B1">530703</td>
+                    <td class="B2">建筑装饰材料技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">建筑材料类</td>
+                	<td class="B1">530704</td>
+                    <td class="B2">建筑材料设备应用</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">建筑材料类</td>
+                	<td class="B1">530705</td>
+                    <td class="B2">新型建筑材料技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">能源动力与材料大类</td>
+					<td class="B4">建筑材料类</td>
+                	<td class="B1">530706</td>
+                    <td class="B2">建筑材料生产与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540101</td>
+                    <td class="B2">建筑设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540102</td>
+                    <td class="B2">建筑装饰工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540103</td>
+                    <td class="B2">古建筑工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540104</td>
+                    <td class="B2">建筑室内设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540105</td>
+                    <td class="B2">风景园林设计</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540106</td>
+                    <td class="B2">园林工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设计类</td>
+                	<td class="B1">540107</td>
+                    <td class="B2">建筑动画与模型制作</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">城乡规划与管理类</td>
+                	<td class="B1">540201</td>
+                    <td class="B2">城乡规划</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">城乡规划与管理类</td>
+                	<td class="B1">540202</td>
+                    <td class="B2">村镇建设与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">城乡规划与管理类</td>
+                	<td class="B1">540203</td>
+                    <td class="B2">城市信息化管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">土建施工类</td>
+                	<td class="B1">540301</td>
+                    <td class="B2">建筑工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">土建施工类</td>
+                	<td class="B1">540302</td>
+                    <td class="B2">地下与隧道工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">土建施工类</td>
+                	<td class="B1">540303</td>
+                    <td class="B2">土木工程检测技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">土建施工类</td>
+                	<td class="B1">540304</td>
+                    <td class="B2">建筑钢结构工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设备类</td>
+                	<td class="B1">540401</td>
+                    <td class="B2">建筑设备工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设备类</td>
+                	<td class="B1">540402</td>
+                    <td class="B2">供热通风与空调工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设备类</td>
+                	<td class="B1">540403</td>
+                    <td class="B2">建筑电气工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设备类</td>
+                	<td class="B1">540404</td>
+                    <td class="B2">建筑智能化工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设备类</td>
+                	<td class="B1">540405</td>
+                    <td class="B2">工业设备安装工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建筑设备类</td>
+                	<td class="B1">540406</td>
+                    <td class="B2">消防工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建设工程管理类</td>
+                	<td class="B1">540501</td>
+                    <td class="B2">建设工程管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建设工程管理类</td>
+                	<td class="B1">540502</td>
+                    <td class="B2">工程造价</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建设工程管理类</td>
+                	<td class="B1">540503</td>
+                    <td class="B2">建筑经济管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建设工程管理类</td>
+                	<td class="B1">540504</td>
+                    <td class="B2">建设项目信息化管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">建设工程管理类</td>
+                	<td class="B1">540505</td>
+                    <td class="B2">建设工程监理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">市政工程类</td>
+                	<td class="B1">540601</td>
+                    <td class="B2">市政工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">市政工程类</td>
+                	<td class="B1">540602</td>
+                    <td class="B2">城市燃气工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">市政工程类</td>
+                	<td class="B1">540603</td>
+                    <td class="B2">给排水工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">市政工程类</td>
+                	<td class="B1">540604</td>
+                    <td class="B2">环境卫生工程技术</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">房地产类</td>
+                	<td class="B1">540701</td>
+                    <td class="B2">房地产经营与管理</td>
+                    <td class="B6"></td>
+                </tr>
+                
+                <tr  onmouseover="chgTDbg(this,'on')" class="table_list" onmouseout="chgTDbg(this,'off')" bgcolor="#ffffff">
+                	<td class="B3">土木建筑大类</td>
+					<td class="B4">房地产类</td>
+                	<td class="B1">540702</td>
+                    <td class="B2">房地产检测与估价</td>
+                    <td class="B6"></td>
+                </tr>
+                
+			</table>
+			<div id="page"><span>共<font color='red'>761</font>条记录,上为第<font color='red'>101</font>到<font color='red'>200</font>条    </span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=0')">首页</A></span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=0')">上一页</A></span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=200')">下一页</A></span><span><A  class='one' href="javascript:turnPage('mspMajorGzAction.fo?method=list&startcount=700')">末页</A></span><span>&nbsp;&nbsp;&nbsp;&nbsp;转到</span><span><input type='text' name='gopage' id="gopage" class='two' value='' style='text-align:left;'></span><span>页</span><span><a href='#' onclick="javascript:gotoPageTxt('mspMajorGzAction.fo?method=list&startcount=')"  class='three'>GO</a><input type='hidden' name='totalPages' id ='totalPages' value='8'/><input type='hidden' name='page_size' id ='page_size' value='100'/></span><div class='high01'></div></div>
+		</div>
+		<div cal class="clear"></div>
+		</div>
+	</div>
+	<div class="box_hr6"></div>
+	<div id="A6">&nbsp;</div>
+	<div class="footer">
+		<div id="footer">
+			<p>技术支持： 中国职业技术教育学会中国职业技术教育网编辑运营中心</p>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</form>
+</body>
+</html>
